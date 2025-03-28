@@ -8,7 +8,12 @@ from statsmodels.tsa.stattools import acf, pacf
 import logging
 
 # Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.INFO, 
+                    format='%(asctime)s - %(levelname)s - %(message)s',
+                    handlers=[
+                        logging.FileHandler('../logs/EDA.log'),
+                        logging.StreamHandler()
+                    ])
 
 def load_data(file_path):
     logging.info("Loading data from file...")
